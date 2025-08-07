@@ -56,7 +56,9 @@ while True:
             busqueda = input()
             for clave, datos in repartidores.items():
                 if busqueda.upper() == clave.upper():
-                    print(datos)
+                    print(f"Repartidor: {clave}, Datos: {datos}")
                     break
                 else:
                     print("Error, este repartidor no está en el sistema")
+                    break
+            break
