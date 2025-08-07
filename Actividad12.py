@@ -51,3 +51,12 @@ while True:
                 total = promedio/datos["cantidad"]
             print(f"Promedio de paquetes entregados: {total}")
             break
+        case "2":
+            print("Ingrese el nombre del repartidor que desea buscar: ")
+            busqueda = input()
+            for clave, datos in repartidores.items():
+                if busqueda.upper() == clave.upper():
+                    print(datos)
+                    break
+                else:
+                    print("Error, este repartidor no está en el sistema")
