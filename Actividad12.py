@@ -50,5 +50,6 @@ while True:
             hola = list(repartidores.items())
             resultado = quick_sort(hola)
             for nombre, valor in resultado:
-                print(f"Clave: {nombre}, valor: {valor}")
+                print(f"Clave: {nombre}, Datos: {valor}")
+
             break
