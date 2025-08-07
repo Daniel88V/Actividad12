@@ -38,11 +38,12 @@ def busqueda_secuencial(lista, objetivo):
         if lista[i][0] == objetivo:
             return i
     return None
-print("======MENÚ======")
-print("1. Listado de repartidores.")
-print("2. Buscar repartidor.")
-opcion = input("Seleccione una opcion: ")
 while True:
+    print("======MENÚ======")
+    print("1. Listado de repartidores.")
+    print("2. Buscar repartidor.")
+    print("3. Salir.")
+    opcion = input("Seleccione una opcion: ")
     match opcion:
         case "1":
             hola = list(repartidores.items())
@@ -54,7 +55,6 @@ while True:
                 promedio += datos["paquetes_entregados"]
                 total = promedio/datos["cantidad"]
             print(f"Promedio de paquetes entregados: {total}")
-            break
         case "2":
             print("Ingrese el nombre del repartidor que desea buscar: ")
             busqueda = input().upper()
@@ -65,4 +65,6 @@ while True:
                 print(f"Clave: {nom}, Datos: Paquetes encontrados:{datos['paquetes_entregados']}, Zona:{datos['zona']}")
             else:
                 print("No se ha encontrado al repartidor")
-            break
+        case "3":
+            print("Saliendo del programa...")
+            exit()
