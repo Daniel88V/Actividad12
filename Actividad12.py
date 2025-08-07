@@ -33,7 +33,11 @@ for i in range(cont):
         "zona": zona,
         "cantidad": cont
     }
-
+def busqueda_secuencial(lista, objetivo):
+    for i in range(len(lista)):
+        if lista[i][0] == objetivo:
+            return i
+    return None
 print("======MENÚ======")
 print("1. Listado de repartidores.")
 print("2. Buscar repartidor.")
@@ -53,12 +57,12 @@ while True:
             break
         case "2":
             print("Ingrese el nombre del repartidor que desea buscar: ")
-            busqueda = input()
-            for clave, datos in repartidores.items():
-                if busqueda.upper() == clave.upper():
-                    print(f"Repartidor: {clave}, Datos: {datos}")
-                    break
-                else:
-                    print("Error, este repartidor no está en el sistema")
-                    break
+            busqueda = input().upper()
+            repa = list(repartidores.items())
+            lupa = busqueda_secuencial(repa, busqueda)
+            if lupa is not None:
+                nom, datos = repa[lupa]
+                print(f"Clave: {nom}, Datos: Paquetes encontrados:{datos['paquetes_entregados']}, Zona:{datos['zona']}")
+            else:
+                print("No se ha encontrado al repartidor")
             break
