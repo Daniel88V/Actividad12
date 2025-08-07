@@ -39,8 +39,13 @@ for i in range(cont):
         "paquetes_entregados": paquetes_entregados,
         "zona": zona
     }
-
 def menu():
     print("======MENÚ======")
     print("1. Listado de repartidores.")
     print("2. Buscar repartidor.")
+    opcion = input("Seleccione una opcion: ")
+    match opcion:
+        case "1":
+            for clave, datos in repartidores.values():
+                resultado = datos
+                quick_sort(resultado)
