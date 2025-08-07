@@ -16,9 +16,31 @@ for i in range(cont):
             print("Error, este repartidor ya existe")
         else:
             break
-    nombre = input("Ingrese el nombre del repartidor: ")
+    while True:
+        nombre = input("Ingrese el nombre del repartidor: ")
+        if nombre.upper() in repartidores:
+            print("Error, este repartidor ya existe")
+        else:
+            break
     while True:
         paquetes_entregados = int(input("Ingrese la cantidad de paquetes entregados: "))
         if paquetes_entregados < 0:
             print("Error, los paquetes entregados deben de ser números positivos")
+        else:
+            break
+    while True:
+        zona = input("Ingrese la zona asignada: ")
+        if not zona:
+            print("Error,campo requerido")
+        else:
+            break
+    repartidores[clave] = {
+        "nombre": nombre,
+        "paquetes_entregados": paquetes_entregados,
+        "zona": zona
+    }
 
+def menu():
+    print("======MENÚ======")
+    print("1. Listado de repartidores.")
+    print("2. Buscar repartidor.")
