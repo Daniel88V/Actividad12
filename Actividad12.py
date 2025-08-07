@@ -11,14 +11,8 @@ cont = int(input("Ingrese cuantos repartidores trabajaron hoy: "))
 for i in range(cont):
     print(f"Repartidor #{i+1}")
     while True:
-        clave = input("Ingrese la clave: ")
-        if clave in repartidores:
-            print("Error, este repartidor ya existe")
-        else:
-            break
-    while True:
-        nombre = input("Ingrese el nombre del repartidor: ")
-        if nombre.upper() in repartidores:
+        nombre = input("Ingrese el nombre del repartidor: ").upper()
+        if nombre in repartidores:
             print("Error, este repartidor ya existe")
         else:
             break
@@ -34,10 +28,10 @@ for i in range(cont):
             print("Error,campo requerido")
         else:
             break
-    repartidores[clave] = {
-        "nombre": nombre,
+    repartidores[nombre] = {
         "paquetes_entregados": paquetes_entregados,
-        "zona": zona
+        "zona": zona,
+        "cantidad": cont
     }
 
 print("======MENÚ======")
@@ -51,5 +45,7 @@ while True:
             resultado = quick_sort(hola)
             for nombre, valor in resultado:
                 print(f"Clave: {nombre}, Datos: {valor}")
-
+            for clave, datos in repartidores.items():
+                promedio = datos["paquetes_entregados"]/datos["cantidad"]
+                print(f"Promedio de paquetes entregados: {promedio}")
             break
