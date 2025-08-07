@@ -2,9 +2,9 @@ def quick_sort(lista):
     if len(lista) <= 1:
         return lista
     pivote = lista[0]
-    menores = [x for x in lista[1:] if x < pivote]
-    iguales = [x for x in lista if x == pivote]
-    mayores = [x for x in lista[1:] if x > pivote]
+    menores = [x for x in lista[1:] if x[1]['paquetes_entregados'] < pivote[1]['paquetes_entregados']]
+    iguales = [x for x in lista if x[1]['paquetes_entregados'] == pivote[1]['paquetes_entregados']]
+    mayores = [x for x in lista[1:] if x[1]['paquetes_entregados'] > pivote[1]['paquetes_entregados']]
     return quick_sort(mayores) + iguales + quick_sort(menores)
 repartidores = {}
 cont = int(input("Ingrese cuantos repartidores trabajaron hoy: "))
@@ -47,7 +47,8 @@ opcion = input("Seleccione una opcion: ")
 while True:
     match opcion:
         case "1":
-            lista = [repartidores.values()]
-            quick_sort(lista)
-            resultado = quick_sort(lista)
-            print(resultado)
+            hola = list(repartidores.items())
+            resultado = quick_sort(hola)
+            for nombre, valor in resultado:
+                print(f"Clave: {nombre}, valor: {valor}")
+            break
