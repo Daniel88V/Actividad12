@@ -45,7 +45,9 @@ while True:
             resultado = quick_sort(hola)
             for nombre, valor in resultado:
                 print(f"Clave: {nombre}, Datos: {valor}")
+            promedio = 0
             for clave, datos in repartidores.items():
-                promedio = datos["paquetes_entregados"]/datos["cantidad"]
-                print(f"Promedio de paquetes entregados: {promedio}")
+                promedio += datos["paquetes_entregados"]
+                total = promedio/datos["cantidad"]
+            print(f"Promedio de paquetes entregados: {total}")
             break
