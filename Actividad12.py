@@ -55,6 +55,7 @@ while True:
                 promedio += datos["paquetes_entregados"]
                 total = promedio/datos["cantidad"]
             print(f"Promedio de paquetes entregados: {total}")
+            print(f"Total de paquetes entregados: {promedio}")
         case "2":
             print("Ingrese el nombre del repartidor que desea buscar: ")
             busqueda = input().upper()
@@ -62,7 +63,7 @@ while True:
             lupa = busqueda_secuencial(repa, busqueda)
             if lupa is not None:
                 nom, datos = repa[lupa]
-                print(f"Clave: {nom}, Datos: Paquetes encontrados:{datos['paquetes_entregados']}, Zona:{datos['zona']}")
+                print(f"Clave: {nom}, Datos: Paquetes entregados:{datos['paquetes_entregados']}, Zona:{datos['zona']}")
             else:
                 print("No se ha encontrado al repartidor")
         case "3":
